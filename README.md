@@ -31,15 +31,19 @@
 **User Stories**
 
 #### As a First Time User:
-
+- I want the website to have visually clear purpose.
+- I want to be able intuitively browse through website and easily find all the pages.
+- I want the functionality to be simple with engaging content.
 
 #### As a Returning User: 
-
-
+- I want to find out more about habit tracking.
+- I want to see how this website is different to others like it and what the benefits are.
+- I want to sign up to be able to use all the functions and check how straightforward usability is.
 
 #### As a Frequent User: 
-
-
+- I want easily add new habits and have an option to add description, once I logged in.
+- I want to simple way to tick the completed task for the day.
+- I want to be able to track my progress.
 
 ## Scope
 
@@ -51,6 +55,9 @@
 
 ## Skeleton
 
+- Home Page: <a href="wireframes/home-wireframe-b.pdf" target="_blank" >Home</a>
+
+- All Habits Page: <a href="wireframes/habits-wireframe-b.pdf" target="_blank" >All Habits</a>
 ---
 
 ## Surface
