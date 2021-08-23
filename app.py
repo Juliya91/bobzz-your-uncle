@@ -19,10 +19,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def hello():
+@app.route("/get_habits")
+def get_habits():
     habits = list(mongo.db.habits.find())
     print('habits ', habits)
-    return render_template("index.html", habits=habits)
+    return render_template("habits.html", habits=habits)
 
 
 if __name__ == "__main__":
