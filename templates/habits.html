@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
-
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
-    <body>
-
-        <h1> Habit List</h1>
+{% extends "base.html" %}
+{% block content %}
+        <h1 class="blue-text text-darken-2"> Habit List</h1>
         {%for habit in habits%}
           <p>{{habit.habit_name}}</p>
           <p>{{habit.category_name}}</p>
@@ -21,9 +8,4 @@
           <p>{{habit.completion_time}}</p>
 
         {%endfor%}
-
-
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="static/js/materialize.min.js"></script>
-    </body>
-  </html>
+{% endblock %}
