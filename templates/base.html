@@ -30,7 +30,7 @@
               <li><a href="#">Progress</a></li>
               <li><a href="#">Log Out</a></li>
               <li><a href="#">Log In</a></li>
-              <li><a href="#">Sign Up</a></li>
+              <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
             </ul>
           </div>
         </nav>
@@ -44,7 +44,7 @@
           <li><a href="#">Progress</a></li>
           <li><a href="#">Log Out</a></li>
           <li><a href="#">Log In</a></li>
-          <li><a href="#">Sign Up</a></li>
+          <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
         </ul>
         <!--/Navbar & Sidenav-->
       </header>
@@ -55,26 +55,26 @@
     <!------ Footer ----->
       <!----- Footer taken from from Materialize - (https://materializecss.com/footer.html)-->
         <footer class="page-footer deep-orange lighten-2">
-          <div class="container-fluid">
+          <div class="container-fluid center">
             <div class="row">
               <div class="col m4 s12">
                 <h6 class="grey-text text-lighten-4">Feel like organizing your day is a drag?</h6>
                 <h6 class="grey-text text-lighten-4">Don't worry we are here to help!</h6>
               </div>
               <div class="col m4 s12">
-                <a class="waves-effect waves-light btn">Sign Up!</a>
+                <a class="deep-orange-text text-lighten-2 white btn" href="{{ url_for('signup') }}">Sign Up!</a>
               </div>
               <div class="col m4 s12">
                   <a target="_blank" href="#">
-                    <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                    <i class="fab fa-facebook-square white-text" aria-hidden="true"></i>
                       <span class="sr-only">Facebook</span>
                   </a>
                  <a target="_blank" href="#">
-                    <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                    <i class="fab fa-instagram-square white-text" aria-hidden="true"></i>
                       <span class="sr-only">Instagram</span>
                   </a>
                   <a target="_blank" href="#">
-                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                    <i class="fab fa-youtube white-text" aria-hidden="true"></i>
                     <span class="sr-only">YouTube</span>
                 </a>
               </div>

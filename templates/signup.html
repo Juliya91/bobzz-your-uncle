@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!----- Center-align class taken from Code Institute walkthrough project - Task Manager ------>
+<h3 class="center-align deep-orange-text text-lighten-2">Sign Up!</h3>
+
+<!-------- Code for card and text inputs taken from Materialize 
+  (https://materializecss.com/text-inputs.html) and edited slightly ---------->
+<!-------- Classes for icons taken from Code Institute walkthrough project - Task Manager -------->
+<div class="row">
+  <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('signup') }}">
+    <div class="card-panel">
+        <!------ Username ------>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="fas fa-user-plus prefix deep-orange-text text-lighten-2"></i>
+            <input id="username" name="username" type="text" class="validate" required>
+            <label for="username">Username</label>
+          </div>
+        </div>
+        <!------ Password ------>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="fas fa-user-lock prefix deep-orange-text text-lighten-2"></i>
+            <input id="password" name="password" type="password" class="validate" required>
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <!------ Confirm Password ------>
+        <!------ Code for confirming password taken from Online Web Tutor 
+          (https://onlinewebtutorblog.com/how-to-validate-password-and-confirm-password-using-jquery/) 
+          and edited slightly ---->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="fas fa-user-lock prefix deep-orange-text text-lighten-2"></i>
+            <input id="confirm_password" name="confirm_password" type="password" class="validate" required>
+            <label for="confirm_password">Confirm Password</label>
+          </div>
+        </div>
+        <div id="CheckPassMatch"></div>
+        <!------ Sign Up ------>
+        <div class="row">
+          <button type="submit" class="col s12 btn-large deep-orange lighten-2">
+            Sign Up! <i class="fas fa-sign-in-alt"></i></button>
+        </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
