@@ -1,0 +1,7 @@
+body {
+    min-height: 100vh;
+}
+
+.flash-msgs {
+    line-height: 1;
+}
