@@ -25,12 +25,15 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="#">Home</a></li>
-              <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
-              <li><a href="#">Manage Categories</a></li>
-              <li><a href="#">Progress</a></li>
-              <li><a href="#">Log Out</a></li>
-              <li><a href="{{ url_for('login') }}">Log In</a></li>
-              <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+              {% if session.user %}
+                  <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
+                  <li><a href="#">Manage Categories</a></li>
+                  <li><a href="#">Progress</a></li>
+                  <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+              {% else %}
+                  <li><a href="{{ url_for('login') }}">Log In</a></li>
+                  <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+              {% endif %}
             </ul>
           </div>
         </nav>
@@ -39,12 +42,15 @@
         <ul class="sidenav" id="mobile-demo">
           <li><h4>BobZZ Your Uncle</h4></li>
           <li><a href="#">Home</a></li>
-          <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
-          <li><a href="#">Manage Categories</a></li>
-          <li><a href="#">Progress</a></li>
-          <li><a href="#">Log Out</a></li>
-          <li><a href="{{ url_for('login') }}">Log In</a></li>
-          <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          {% if session.user %}
+              <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
+              <li><a href="#">Manage Categories</a></li>
+              <li><a href="#">Progress</a></li>
+              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          {% else %}
+              <li><a href="{{ url_for('login') }}">Log In</a></li>
+              <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          {% endif %}
         </ul>
         <!--/Navbar & Sidenav-->
       </header>

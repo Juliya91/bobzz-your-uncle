@@ -63,6 +63,7 @@ def login():
                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -72,8 +73,30 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-            
+
+        return redirect(url_for("get_habits"))
+
     return render_template("login.html")
+
+
+@app.route("/habits/<username>", methods=["GET", "POST"])
+def habits(username):
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("habits.html", username=username)
+
+    return redirect(url_for("get_habits"))
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
