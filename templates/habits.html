@@ -1,29 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-        <h1 class="blue-text text-darken-2"> Habit List</h1>
-        {%for habit in habits%}
-          <p>{{habit.habit_name}}</p>
-          <p>{{habit.category_name}}</p>
-          <p>{{habit.habit_description}}</p>
-          <p>{{habit.completion_time}}</p>
-
-        {%endfor%}
+        <h1 class="cyan-text text-darken-4"> Future Habits Await!</h1>
         
         <div class="row">
+          {%for habit in habits%}
           <div class="card col s12 l4 white-text cyan darken-4">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="static/images/self_care.jpeg">
             </div>
             <div class="card-content">
-              <span class="card-title activator white-text cyan darken-4">Card Title <i
+              <span class="card-title activator white-text cyan darken-4"><strong>{{habit.habit_name}}</strong> <i
                   class="fas fa-ellipsis-v"></i></span>
-              <p>Category here</p>
+              <p>{{habit.category_name}}</p><br>
+              {{habit.completion_time}}
             </div>
             <div class="card-reveal white-text cyan darken-4">
-              <span class="card-title ">Card Title <i class="fas fa-ellipsis-v"></i></span>
-              <p class="white-text cyan darken-4">Here is some more information about this product that is only revealed once clicked on.</p>
+              <span class="card-title "><strong>{{habit.habit_name}}</strong> <i class="fas fa-ellipsis-v"></i></span>
+              <p class="white-text cyan darken-4">{{habit.habit_description}}</p>
             </div>
           </div>
+          {%endfor%}
         </div>
                   
 {% endblock %}
