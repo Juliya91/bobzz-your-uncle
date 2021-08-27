@@ -74,7 +74,7 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-        return redirect(url_for("get_habits"))
+        return redirect(url_for("habits", username=session['user']))
 
     return render_template("login.html")
 
@@ -95,6 +95,11 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_habit")
+def add_habit():
+    return render_template("add_habit.html")
 
 
 if __name__ == "__main__":
