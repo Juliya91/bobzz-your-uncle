@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
+    $('select').formSelect();
     // Code for confirm password taken from Online Web Tutor 
     // (https://onlinewebtutorblog.com/how-to-validate-password-and-confirm-password-using-jquery/) and edited slightly
     $("#confirm_password").on('keyup', function() {
@@ -11,5 +12,6 @@ $(document).ready(function(){
       $("#CheckPassMatch").html("Password does not match !").css("color", "red");
       else
         $("#CheckPassMatch").html("Password match !").css("color", "green");
+    
     });
   });
