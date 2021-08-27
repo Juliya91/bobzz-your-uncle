@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_habits")
 def get_habits():
-    habits = list(mongo.db.habits.find())
+    habits = list(mongo.db.habits.find({'is_public': True}))
     print('habits ', habits)
     return render_template("habits.html", habits=habits)
 
@@ -81,14 +81,12 @@ def login():
 
 @app.route("/habits/<username>", methods=["GET", "POST"])
 def habits(username):
-    # grab the session user's username from db
+    # Take the session user's username from db and link it to My Habits page
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    habits = list(mongo.db.habits.find({'created_by': username}))
     if session["user"]:
-        return render_template("habits.html", username=username)
-
-    return redirect(url_for("get_habits"))
+        return render_template("habits.html", habits=habits)
 
 
 @app.route("/logout")

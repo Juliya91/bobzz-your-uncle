@@ -6,13 +6,18 @@
           {%for habit in habits%}
           <div class="card col s12 l4 white-text cyan darken-4">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="static/images/self_care.jpeg">
+              <img class="activator" src="{{ url_for('static', filename='images/self_care.jpeg')}}">
             </div>
             <div class="card-content">
               <span class="card-title activator white-text cyan darken-4"><strong>{{habit.habit_name}}</strong> <i
                   class="fas fa-ellipsis-v"></i></span>
               <p>{{habit.category_name}}</p><br>
               {{habit.completion_time}}
+              {% if session.user == habit.created_by %}
+                  <br/>
+                  <button> Edit</button>
+                  <button> Delete</button>
+              {%endif%}
             </div>
             <div class="card-reveal white-text cyan darken-4">
               <span class="card-title "><strong>{{habit.habit_name}}</strong> <i class="fas fa-ellipsis-v"></i></span>

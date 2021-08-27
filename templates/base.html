@@ -4,7 +4,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
       integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css"/>
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css')}}"  media="screen,projection"/>
       <!--Link to style.css taken from Code Institute walkthrough project - Task Manager-->
       <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -25,8 +25,9 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="#">Home</a></li>
+              <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
               {% if session.user %}
-                  <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
+                  <li><a href="{{ url_for('habits', username=session.user) }}">My Habits</a></li>
                   <li><a href="#">Manage Categories</a></li>
                   <li><a href="#">Progress</a></li>
                   <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -42,8 +43,9 @@
         <ul class="sidenav" id="mobile-demo">
           <li><h4>BobZZ Your Uncle</h4></li>
           <li><a href="#">Home</a></li>
+          <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
           {% if session.user %}
-              <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
+              <li><a href="{{ url_for('habits', username=session.user) }}">My Habits</a></li>
               <li><a href="#">Manage Categories</a></li>
               <li><a href="#">Progress</a></li>
               <li><a href="{{ url_for('logout') }}">Log Out</a></li>
