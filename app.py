@@ -97,6 +97,25 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/add_habit", methods=["GET", "POST"])
+def add_habit():
+    if request.method == "POST":
+        habit = {
+            "category_name": request.form.get("category_name"),
+            "habit_name": request.form.get("habit_name"),
+            "habit_description": request.form.get("habit_description"),
+            "completion_time": request.form.getlist("completion_time"),
+            "created_by": session["user"]
+        }
+
+        mongo.db.habits.insert_one(habit)
+        flash("Habit Successfully Added")
+        return redirect(url_for("habits", username=session['user']))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_habit.html", categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
