@@ -12,16 +12,63 @@
               <span class="card-title activator white-text cyan darken-4"><strong>{{habit.habit_name}}</strong> <i
                   class="fas fa-ellipsis-v"></i></span>
               <p>{{habit.category_name}}</p><br>
-              {{habit.completion_time}}
+              {% if habit.completion_time == 'daytime'%}
+                <form action="{{url_for('add_habit_progress')}}" method="POST">
+                  <input type="hidden" value="{{habit._id}}" name="habit_id"/>
+                  <div class="input-field col s12">
+                    <select multiple name="completion_time"> 
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="Morning">Morning</option>
+                      <option value="Afternoon">Afternoon</option>
+                      <option value="Evening">Evening</option>
+                    </select>
+                    <label>Select completion time</label>
+                  </div>
+                  <button type="submit"> Complete</button>
+                </form>
+                      
+              {%endif%}
+              {% if habit.completion_time == 'minutes'%}
+                <form action="{{url_for('add_habit_progress')}}" method="POST">
+                  <input type="hidden" value="{{habit._id}}" name="habit_id"/>
+                  <div class="input-field col s12">
+                    <select name="completion_time"> 
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="5 Minutes">5 Minutes</option>
+                      <option value="15 Minutes">15 Minutes</option>
+                      <option value="30 Minutes">30 Minutes</option>
+                      <option value="45 Minutes">45 Minutes</option>
+                    </select>
+                    <label>Select completion time</label>
+                  </div>
+                  <button type="submit"> Complete</button>
+                </form>
+                    
+              {%endif%}
+      
+
+
               {% if session.user == habit.created_by %}
-                  <br/>
-                  <button> Edit</button>
-                  <button> Delete</button>
+                  <div class="row">
+                    <button> Edit</button>
+                    <button> Delete</button>
+                  </div>
               {%endif%}
             </div>
             <div class="card-reveal white-text cyan darken-4">
               <span class="card-title "><strong>{{habit.habit_name}}</strong> <i class="fas fa-ellipsis-v"></i></span>
               <p class="white-text cyan darken-4">{{habit.habit_description}}</p>
+              {%for progress in habit.progress_list%}
+                <div class="row" style="margin-bottom: 10px;">
+                  <p> Completed on {{progress.progess_date.strftime('%d-%m-%Y')}}: </p>
+                  <ul style="margin-left: 10px;">
+                    {%for completion in progress.completion_time%}
+                      <li>{{completion}}</li>
+                    {%endfor%}
+                  </ul>
+                </div>
+              {%endfor%}
+              
             </div>
           </div>
           {%endfor%}
