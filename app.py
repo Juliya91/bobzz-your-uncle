@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -85,6 +86,12 @@ def habits(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     habits = list(mongo.db.habits.find({'created_by': username}))
+    print('habits', habits)
+    for habit in habits:
+        progress_list = list(mongo.db.progress.find(
+            {'habit_id': habit['_id']}))
+        habit['progress_list'] = progress_list
+    print('habits with progress ', habits)
     if session["user"]:
         return render_template("habits.html", habits=habits)
 
@@ -104,7 +111,7 @@ def add_habit():
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
-            "completion_time": request.form.getlist("completion_time"),
+            "completion_time": request.form.get("completion_time"),
             "created_by": session["user"]
         }
 
@@ -114,6 +121,21 @@ def add_habit():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_habit.html", categories=categories)
+
+
+@app.route("/add_habit_progres", methods=["POST"])
+def add_habit_progress():
+    if request.method == "POST":
+        print('Completion 2 ', request.form.getlist("completion_time[]"))
+        progress = {
+            "habit_id": ObjectId(request.form.get("habit_id")),
+            "completion_time": request.form.getlist("completion_time"),
+            "progess_date": datetime.datetime.now()
+        }
+
+        mongo.db.progress.insert_one(progress)
+        flash("Progress Successfully Added")
+        return redirect(url_for("habits", username=session['user']))
 
 
 if __name__ == "__main__":
