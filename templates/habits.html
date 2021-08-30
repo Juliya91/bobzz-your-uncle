@@ -17,14 +17,15 @@
                   <input type="hidden" value="{{habit._id}}" name="habit_id"/>
                   <div class="input-field col s12">
                     <select multiple name="completion_time"> 
-                      <option value="" disabled selected>Choose your option</option>
+                      <option value="" disabled selected>Choose completion option</option>
                       <option value="Morning">Morning</option>
                       <option value="Afternoon">Afternoon</option>
                       <option value="Evening">Evening</option>
                     </select>
-                    <label>Select completion time</label>
+                    <label></label>
                   </div>
-                  <button type="submit"> Complete</button>
+                  <button class="btn-small white-text cyan darken-4 btn-done-shadow center-align" type="submit">
+                    Complete</button>
                 </form>
                       
               {%endif%}
@@ -33,25 +34,28 @@
                   <input type="hidden" value="{{habit._id}}" name="habit_id"/>
                   <div class="input-field col s12">
                     <select name="completion_time"> 
-                      <option value="" disabled selected>Choose your option</option>
+                      <option value="" disabled selected>Choose completion option</option>
                       <option value="5 Minutes">5 Minutes</option>
                       <option value="15 Minutes">15 Minutes</option>
                       <option value="30 Minutes">30 Minutes</option>
                       <option value="45 Minutes">45 Minutes</option>
                     </select>
-                    <label>Select completion time</label>
+                    <label class="select-label"></label>
                   </div>
-                  <button type="submit"> Complete</button>
+                  <button class="btn-small white-text cyan darken-4 btn-done-shadow center-align" type="submit">
+                      Complete</button>
                 </form>
                     
               {%endif%}
-      
-
 
               {% if session.user == habit.created_by %}
                   <div class="row">
-                    <button> Edit</button>
-                    <button> Delete</button>
+                    <div class="col s6">
+                      <a href="" class="btn-small deep-orange-text text-lighten-2 white">Edit</a>
+                    </div>
+                    <div class="col s6">
+                      <a href="" class="btn-small deep-orange-text text-lighten-2 white">Delete</a>
+                    </div>
                   </div>
               {%endif%}
             </div>

@@ -6,3 +6,36 @@ body {
     line-height: 1;
 }
 
+/* Font-weigt setting taken from Stack Overflow (https://stackoverflow.com/questions/18569994/change-button-text-to-bold)*/
+.btn, .btn-small {
+    font-weight: bold;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+.btn-small {
+    margin: 5px;
+}
+
+.btn-done-shadow {
+    box-shadow: 20px 20px 50px whitesmoke;
+}
+
+.select-label {
+    color: #ffff;
+    font-weight: bold;  
+}
+
+.select-wrapper input.select-dropdown {
+    color: #006064;
+    background-color: #ffff;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.select-wrapper .choose-option {
+    background-color: #ffff;
+}
+
