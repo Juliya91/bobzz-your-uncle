@@ -138,6 +138,14 @@ def add_habit_progress():
         return redirect(url_for("habits", username=session['user']))
 
 
+@app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
+def edit_habit(habit_id):
+    habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_habit.html", habit=habit, categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

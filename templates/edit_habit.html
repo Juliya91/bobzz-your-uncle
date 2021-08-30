@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align deep-orange-text text-lighten-2">Edit Habit</h3>
+
+    <div class="row">
+        <form class="col s12" method="POST" action="{{ url_for('edit_habit', habit_id=habit._id) }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-book prefix cyan-text text-darken-4"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Habit's Category</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-check-square prefix cyan-text text-darken-4"></i>
+                    <input id="habit_name" name="habit_name" minlength="5" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="habit_name">Habit Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-indent prefix cyan-text text-darken-4"></i>
+                    <textarea id="habit_description" name="habit_description" minlength="5" 
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="habit_description">Habit Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="completion_time" name="completion_time">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="daytime">Daytime</option>
+                        <option value="minutes">Minutes</option>
+                    </select>
+                      <label class="cyan-text text-darken-4">Completion Time Options</label>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large cyan darken-4 white-text">
+                        Edit Habit <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
