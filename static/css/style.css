@@ -39,3 +39,11 @@ body {
     background-color: #ffff;
 }
 
+@media only screen and (min-width: 993px){
+    .row .col.l4 {
+        width: 30%;
+        margin: 10px;
+        left: auto;
+        right: auto;
+    }
+}
