@@ -18,7 +18,7 @@ body {
 }
 
 .btn-done-shadow {
-    box-shadow: 20px 20px 50px whitesmoke;
+    box-shadow: 15px 15px 60px whitesmoke;
 }
 
 .select-label {
@@ -33,11 +33,21 @@ body {
     text-align: center;
     border-radius: 10px;
     font-weight: bold;
+    box-shadow: 5px 5px 10px #006064 inset;
 }
 
 .select-wrapper .choose-option {
     background-color: #ffff;
 }
+
+.done-progress {
+    margin-bottom: 10px;
+}
+
+.done-progress ul{
+    margin-left: 10px;
+}
+
 
 @media only screen and (min-width: 993px){
     .row .col.l4 {

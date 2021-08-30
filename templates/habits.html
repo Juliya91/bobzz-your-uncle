@@ -42,8 +42,8 @@
                     </select>
                     <label class="select-label"></label>
                   </div>
-                  <button class="btn-small white-text cyan darken-4 btn-done-shadow center-align" type="submit">
-                      Complete</button>
+                  <button class="btn-small center-align deep-orange-text text-lighten-2 white" type="submit">
+                      Done</button>
                 </form>
                     
               {%endif%}
@@ -51,19 +51,20 @@
               {% if session.user == habit.created_by %}
                   <div class="row">
                     <div class="col s6">
-                      <a href="" class="btn-small deep-orange-text text-lighten-2 white">Edit</a>
+                      <a href="" class="btn-small white-text cyan darken-4 btn-done-shadow ">Edit</a>
                     </div>
                     <div class="col s6">
-                      <a href="" class="btn-small deep-orange-text text-lighten-2 white">Delete</a>
+                      <a href="" class="btn-small white-text cyan darken-4 btn-done-shadow ">Delete</a>
                     </div>
                   </div>
               {%endif%}
             </div>
             <div class="card-reveal white-text cyan darken-4">
-              <span class="card-title "><strong>{{habit.habit_name}}</strong> <i class="fas fa-ellipsis-v"></i></span>
+              <span class="card-title "><strong>{{habit.habit_name}}</strong> <i class="fas fa-ellipsis-v">
+              </i></span>
               <p class="white-text cyan darken-4">{{habit.habit_description}}</p>
               {%for progress in habit.progress_list%}
-                <div class="row" style="margin-bottom: 10px;">
+                <div class="row" class="done-progress">
                   <p> Completed on {{progress.progess_date.strftime('%d-%m-%Y')}}: </p>
                   <ul style="margin-left: 10px;">
                     {%for completion in progress.completion_time%}
