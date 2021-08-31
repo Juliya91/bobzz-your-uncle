@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-      <h1 class="cyan-text text-darken-4"> {{content.welcome_message}} </h1>
+        <h1 class="cyan-text text-darken-4"> {{content.welcome_message}} </h1>
         
         <div class="row">
-          {%for habit in habits%}
+          {%for habit in content.habits%}
           <div class="card col s12 l4 white-text cyan darken-4">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="{{ url_for('static', filename='images/self_care.jpeg')}}">
@@ -15,7 +15,7 @@
               {% if habit.completion_time == 'daytime'%}
                 <form action="{{url_for('add_habit_progress')}}" method="POST">
                   <input type="hidden" value="{{habit._id}}" name="habit_id"/>
-                  <div class="input-field col s12">
+                  <div class="input-field col s12 center-align">
                     <select multiple name="completion_time"> 
                       <option value="" disabled selected>Choose completion option</option>
                       <option value="Morning">Morning</option>
@@ -23,16 +23,17 @@
                       <option value="Evening">Evening</option>
                     </select>
                     <label></label>
+                    <button class="btn-small deep-orange-text text-lighten-2 white" type="submit">
+                      Done</button>
                   </div>
-                  <button class="btn-small white-text cyan darken-4 btn-done-shadow center-align" type="submit">
-                    Complete</button>
+                  
                 </form>
                       
               {%endif%}
               {% if habit.completion_time == 'minutes'%}
                 <form action="{{url_for('add_habit_progress')}}" method="POST">
                   <input type="hidden" value="{{habit._id}}" name="habit_id"/>
-                  <div class="input-field col s12">
+                  <div class="input-field col s12 center-align">
                     <select name="completion_time"> 
                       <option value="" disabled selected>Choose completion option</option>
                       <option value="5 Minutes">5 Minutes</option>
@@ -41,9 +42,10 @@
                       <option value="45 Minutes">45 Minutes</option>
                     </select>
                     <label class="select-label"></label>
-                  </div>
-                  <button class="btn-small center-align deep-orange-text text-lighten-2 white" type="submit">
+                    <button class="btn-small  deep-orange-text text-lighten-2 white" type="submit">
                       Done</button>
+                  </div>
+                 
                 </form>
                     
               {%endif%}
@@ -55,8 +57,18 @@
                       class="btn-small white-text cyan darken-4 btn-done-shadow ">Edit</a>
                     </div>
                     <div class="col s6">
-                      <a href="{{ url_for('delete_habit', habit_id=habit._id) }}" class="btn-small white-text cyan darken-4 btn-done-shadow ">Delete</a>
+                      <a  class="btn-small white-text cyan darken-4 btn-done-shadow modal-trigger" href="#modal_{{habit._id}}">Delete</a>
                     </div>
+                    <!-- Delete Modal -->
+                    <div id="modal_{{habit._id}}" class="modal">
+                      <div class="modal-content">
+                        <h4 class="cyan-text text-darken-4">Are you sure you want to delete ?</h4>
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                        <a href="{{ url_for('delete_habit', habit_id=habit._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                      </div>
+                    </div>    
                   </div>
               {%endif%}
             </div>
