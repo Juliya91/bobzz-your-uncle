@@ -25,7 +25,8 @@ mongo = PyMongo(app)
 def get_habits():
     habits = list(mongo.db.habits.find({'is_public': True}))
     print('habits ', habits)
-    return render_template("habits.html", habits=habits)
+    content = {'habits': habits, 'welcome_message': 'Future Habits Await!'}
+    return render_template("habits.html", content=content)
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -93,7 +94,9 @@ def habits(username):
         habit['progress_list'] = progress_list
     print('habits with progress ', habits)
     if session["user"]:
-        return render_template("habits.html", habits=habits)
+        content = {
+            'habits': habits, 'welcome_message': 'Welcome %s' % username}
+        return render_template("habits.html", content=content)
 
 
 @app.route("/logout")

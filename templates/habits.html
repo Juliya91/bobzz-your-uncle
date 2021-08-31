@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-        <h1 class="cyan-text text-darken-4"> Future Habits Await!</h1>
+      <h1 class="cyan-text text-darken-4"> {{content.welcome_message}} </h1>
         
         <div class="row">
           {%for habit in habits%}

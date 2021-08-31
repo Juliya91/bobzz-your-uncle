@@ -6,6 +6,13 @@ body {
     line-height: 1;
 }
 
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 /* Font-weigt setting taken from Stack Overflow (https://stackoverflow.com/questions/18569994/change-button-text-to-bold)*/
 .btn, .btn-small {
     font-weight: bold;
