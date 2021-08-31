@@ -140,6 +140,18 @@ def add_habit_progress():
 
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
 def edit_habit(habit_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "habit_name": request.form.get("habit_name"),
+            "habit_description": request.form.get("habit_description"),
+            "completion_time": request.form.get("completion_time"),
+            "created_by": session["user"]
+        }
+
+        mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
+        flash("Habit Successfully Updated")
+
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
