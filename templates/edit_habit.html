@@ -11,7 +11,11 @@
                     <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% if category.category_name == habit.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="category_name">Habit's Category</label>
@@ -21,7 +25,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-check-square prefix cyan-text text-darken-4"></i>
                     <input id="habit_name" name="habit_name" minlength="5" maxlength="50"
-                        type="text" class="validate" required>
+                    value="{{ habit.habit_name }}" type="text" class="validate" required>
                     <label for="habit_name">Habit Name</label>
                 </div>
             </div>
@@ -29,7 +33,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-indent prefix cyan-text text-darken-4"></i>
                     <textarea id="habit_description" name="habit_description" minlength="5" 
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                        maxlength="200" class="materialize-textarea validate" required>
+                        {{- habit.habit_description -}}
+                    </textarea>
                     <label for="habit_description">Habit Description</label>
                 </div>
             </div>
@@ -46,6 +52,9 @@
             </div>
             <div class="row">
                 <div class="col s12 center-align">
+                    <a href="{{ url_for('habits', username=session.user) }}" class="btn-large red">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
                     <button type="submit" class="btn-large cyan darken-4 white-text">
                         Edit Habit <i class="fas fa-edit right"></i>
                     </button>
