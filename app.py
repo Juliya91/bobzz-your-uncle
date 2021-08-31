@@ -158,6 +158,13 @@ def edit_habit(habit_id):
         "edit_habit.html", habit=habit, categories=categories)
 
 
+@app.route("/delete_habit/<habit_id>")
+def delete_habit(habit_id):
+    mongo.db.habits.remove({"_id": ObjectId(habit_id)})
+    flash("Habit Successfully Deleted")
+    return redirect(url_for("habits", username=session['user']))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

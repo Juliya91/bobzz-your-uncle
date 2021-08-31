@@ -55,7 +55,7 @@
                       class="btn-small white-text cyan darken-4 btn-done-shadow ">Edit</a>
                     </div>
                     <div class="col s6">
-                      <a href="" class="btn-small white-text cyan darken-4 btn-done-shadow ">Delete</a>
+                      <a href="{{ url_for('delete_habit', habit_id=habit._id) }}" class="btn-small white-text cyan darken-4 btn-done-shadow ">Delete</a>
                     </div>
                   </div>
               {%endif%}
