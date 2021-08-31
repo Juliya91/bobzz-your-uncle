@@ -42,9 +42,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <select id="completion_time" name="completion_time">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="daytime">Daytime</option>
-                        <option value="minutes">Minutes</option>
+                        <option value="" disabled>Choose your option</option>
+                        <option value="daytime" {% if 'daytime' == habit.completion_time %} selected {%endif%}>Daytime</option>
+                        <option value="minutes" {% if 'minutes' == habit.completion_time %} selected {%endif%}>Minutes</option>
                     </select>
                       <label class="cyan-text text-darken-4">Completion Time Options</label>
                 </div>
