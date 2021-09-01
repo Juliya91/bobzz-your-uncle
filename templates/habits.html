@@ -7,7 +7,7 @@
           {%else%}  {{ url_for('get_habits') }} {%endif%}">
             <div class="row">
               <div class="input-field col s6">
-                <i class="fas fa-search prefix" style="color: black;"></i>
+                <i class="fas fa-search prefix cyan-text text-darken-4" ></i>
                 <input id="icon_prefix" type="text" class="validate" name="search_value">
                 <label for="icon_prefix">Search for habits</label>
               </div>
@@ -62,9 +62,7 @@
                     <button class="btn-small  deep-orange-text text-lighten-2 white" type="submit">
                       Done</button>
                   </div>
-                 
-                </form>
-                    
+                </form>  
               {%endif%}
 
               {% if session.user == habit.created_by %}
@@ -88,6 +86,16 @@
                     </div>    
                   </div>
               {%endif%}
+              {%if content.my_habits %} 
+              {%else%}
+                <div class="row">
+                  <div class="col s6">
+                    <a href="{{ url_for('clone_habit', habit_id=habit._id) }}" 
+                    class="btn-small white-text cyan darken-4 btn-done-shadow ">Clone</a>
+                  </div>
+                </div>
+              {%endif%}
+
             </div>
             <div class="card-reveal white-text cyan darken-4">
               <span class="card-title "><strong>{{habit.habit_name}}</strong> <i class="fas fa-ellipsis-v">
