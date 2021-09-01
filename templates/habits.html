@@ -1,24 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-        <h1 class="cyan-text text-darken-4"> {{content.welcome_message}} </h1>
+        <h3 class="cyan-text text-darken-4"> {{content.welcome_message}} </h3>
         
         <div class="row">
-          <form class="col s12" method="POST"  action="{%if content.my_habits %} {{ url_for('habits', username=session.user) }} 
-          {%else%}  {{ url_for('get_habits') }} {%endif%}">
+          <form class="col s12" method="POST" action="{%if content.my_habits %} {{ url_for('habits', username=session.user) }} {%else%}  {{ url_for('get_habits') }} {%endif%}">
             <div class="row">
               <div class="input-field col s6">
-                <i class="fas fa-search prefix cyan-text text-darken-4" ></i>
+                <i class="fas fa-search prefix cyan-text text-darken-4"></i>
                 <input id="icon_prefix" type="text" class="validate" name="search_value">
                 <label for="icon_prefix">Search for habits</label>
               </div>
               <div class="input-field col s6">
                 <button class="waves-effect waves-light btn left" type="submit">Search</button>
               </div>
-             
             </div>
           </form>
         </div>
-        
+
         <div class="row">
           {%for habit in content.habits%}
           <div class="card col s12 l4 white-text cyan darken-4">
@@ -43,7 +41,6 @@
                     <button class="btn-small deep-orange-text text-lighten-2 white" type="submit">
                       Done</button>
                   </div>
-                  
                 </form>
                       
               {%endif%}
@@ -59,10 +56,10 @@
                       <option value="45 Minutes">45 Minutes</option>
                     </select>
                     <label class="select-label"></label>
-                    <button class="btn-small  deep-orange-text text-lighten-2 white" type="submit">
+                    <button class="btn-small deep-orange-text text-lighten-2 white" type="submit">
                       Done</button>
                   </div>
-                </form>  
+                </form>   
               {%endif%}
 
               {% if session.user == habit.created_by %}
@@ -72,26 +69,28 @@
                       class="btn-small white-text cyan darken-4 btn-done-shadow ">Edit</a>
                     </div>
                     <div class="col s6">
-                      <a  class="btn-small white-text cyan darken-4 btn-done-shadow modal-trigger" href="#modal_{{habit._id}}">Delete</a>
+                      <a  class="btn-small white-text cyan darken-4 btn-done-shadow modal-trigger"
+                      href="#modal_{{habit._id}}">Delete</a>
                     </div>
                     <!-- Delete Modal -->
                     <div id="modal_{{habit._id}}" class="modal">
                       <div class="modal-content">
-                        <h4 class="cyan-text text-darken-4">Are you sure you want to delete ?</h4>
+                        <h4 class="cyan-text text-darken-4">Are you sure you want to delete?</h4>
                       </div>
                       <div class="modal-footer">
                         <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
-                        <a href="{{ url_for('delete_habit', habit_id=habit._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                        <a href="{{ url_for('delete_habit', habit_id=habit._id) }}" 
+                        class="modal-close waves-effect waves-green btn-flat">Delete</a>
                       </div>
                     </div>    
                   </div>
               {%endif%}
               {%if content.my_habits %} 
               {%else%}
-                <div class="row">
-                  <div class="col s6">
+                <div class="row center-align">
+                  <div class="col s12 center-align">
                     <a href="{{ url_for('clone_habit', habit_id=habit._id) }}" 
-                    class="btn-small white-text cyan darken-4 btn-done-shadow ">Clone</a>
+                    class="btn-small white-text deep-orange-text text-lighten-2 white">Clone</a>
                   </div>
                 </div>
               {%endif%}

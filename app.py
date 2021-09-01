@@ -74,7 +74,6 @@ def login():
             if check_password_hash(
                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
 
             else:
                 # invalid password match
@@ -169,7 +168,7 @@ def edit_habit(habit_id):
         action_name = request.form.get("action_name")
         mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
         flash("Habit Successfully %s" % action_name)
-        return redirect(url_for("habits", username=session['user']))
+        # Heres where you redirect to my habits
 
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)

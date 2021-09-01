@@ -1,10 +1,20 @@
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
-    margin-bottom: 200px;
+}
+
+header {
+    width: 100%;
 }
 
 .flash-msgs {
     line-height: 1;
+}
+
+main {
+    flex: 1 1 auto; 
 }
 
 footer {
@@ -47,6 +57,11 @@ h5{
     margin: 15px;
 }
 
+.row .col.s12 {
+    width: 90%;
+    left: 5%;
+}
+
 .select-label {
     color: #ffff;
     font-weight: bold;  
@@ -77,9 +92,8 @@ h5{
 
 @media only screen and (min-width: 993px){
     .row .col.l4 {
-        width: 30%;
-        margin: 10px;
-        left: auto;
-        right: auto;
+        width: 27%;
+        margin: 15px;
+        left: 6%;
     }
 }

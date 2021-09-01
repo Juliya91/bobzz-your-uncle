@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align deep-orange-text text-lighten-2">{{action_message}} Habit</h3>
+    <h3 class="center-align deep-orange-text text-lighten-2">
+        {{action_message}} Habit</h3>
 
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('edit_habit', habit_id=habit._id) }}">
@@ -60,6 +61,8 @@
                     </button>
                 </div>
             </div>
+            <input id="action_name" name="action_name" minlength="5" maxlength="50"
+                    value="{{action_name}}" type="hidden" class="validate" required>
         </form>
     </div>
 
