@@ -26,10 +26,15 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/get_habits")
+@app.route("/get_habits", methods=["GET", "POST"])
 def get_habits():
     habits = list(mongo.db.habits.find({'is_public': True}))
     print('habits ', habits)
+    if request.method == "POST":
+        search_value = request.form.get("search_value")
+        habits = list(mongo.db.habits.find({"$and": [{'habit_name': {
+            '$regex': search_value}}, {'is_public': True}]}))
+
     content = {'habits': habits, 'welcome_message': 'Future Habits Await!'}
     return render_template("habits.html", content=content)
 
@@ -93,6 +98,10 @@ def habits(username):
         {"username": session["user"]})["username"]
     habits = list(mongo.db.habits.find({'created_by': username}))
     print('habits', habits)
+    if request.method == "POST":
+        search_value = request.form.get("search_value")
+        habits = list(mongo.db.habits.find({"$and": [{'habit_name': {
+            '$regex': search_value}}, {'created_by': username}]}))
     for habit in habits:
         progress_list = list(mongo.db.progress.find(
             {'habit_id': habit['_id']}))
@@ -100,7 +109,8 @@ def habits(username):
     print('habits with progress ', habits)
     if session["user"]:
         content = {
-            'habits': habits, 'welcome_message': 'Welcome %s' % username}
+            'habits': habits, 'welcome_message': 'Welcome %s' % username,
+            'my_habits': True}
         return render_template("habits.html", content=content)
 
 
@@ -156,14 +166,25 @@ def edit_habit(habit_id):
             "completion_time": request.form.get("completion_time"),
             "created_by": session["user"]
         }
-
+        action_name = request.form.get("action_name")
         mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
-        flash("Habit Successfully Updated")
+        flash("Habit Successfully %s" % action_name)
+        # Heres where you redirect to my habits
 
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "edit_habit.html", habit=habit, categories=categories)
+        "edit_habit.html", habit=habit, categories=categories,
+        action_message='Edit', action_name='Updated')
+
+
+@app.route("/clone_habit/<habit_id>", methods=["GET"])
+def clone_habit(habit_id):
+    habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_habit.html", habit=habit, categories=categories,
+        action_message='Clone', action_name='Cloned')
 
 
 @app.route("/delete_habit/<habit_id>")
