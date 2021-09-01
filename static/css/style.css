@@ -1,5 +1,6 @@
 body {
     min-height: 100vh;
+    margin-bottom: 200px;
 }
 
 .flash-msgs {
@@ -11,6 +12,20 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    width: 100%;
+  }
+
+.hero-image {
+    width: inherit;
+    height: 350px;
+    left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* Font-weigt setting taken from Stack Overflow (https://stackoverflow.com/questions/18569994/change-button-text-to-bold)*/
@@ -26,6 +41,10 @@ footer {
 
 .btn-done-shadow {
     box-shadow: 15px 15px 60px whitesmoke;
+}
+
+h5{
+    margin: 15px;
 }
 
 .select-label {

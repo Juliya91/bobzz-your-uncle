@@ -21,10 +21,10 @@
         <!--- Navbar & Sidenav taken from Materialize - (https://materializecss.com/navbar.html) --->
         <nav class="nav-extended deep-orange lighten-2">
           <div class="nav-wrapper">
-            <a href="#!" class="brand-logo left">BobZZ Your Uncle</a>
+            <a href="{{ url_for('home') }}" class="brand-logo left">BobZZ Your Uncle</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
               {% if session.user %}
                   <li><a href="{{ url_for('habits', username=session.user) }}">My Habits</a></li>
@@ -44,7 +44,7 @@
       <!------ Mobile Sidenav ------>
         <ul class="sidenav" id="mobile-demo">
           <li><h4>BobZZ Your Uncle</h4></li>
-          <li><a href="#">Home</a></li>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('get_habits') }}">All Habits</a></li>
           {% if session.user %}
               <li><a href="{{ url_for('habits', username=session.user) }}">My Habits</a></li>

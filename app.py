@@ -21,6 +21,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template("index.html")
+
+
 @app.route("/get_habits")
 def get_habits():
     habits = list(mongo.db.habits.find({'is_public': True}))
