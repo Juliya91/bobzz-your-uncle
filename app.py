@@ -35,7 +35,8 @@ def get_habits():
         habits = list(mongo.db.habits.find({"$and": [{'habit_name': {
             '$regex': search_value}}, {'is_public': True}]}))
 
-    content = {'habits': habits, 'welcome_message': 'Future Habits Await!'}
+    content = {'habits': habits, 'welcome_message':
+               'Your Future Habits Await!'}
     return render_template("habits.html", content=content)
 
 

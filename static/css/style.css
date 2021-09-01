@@ -1,3 +1,5 @@
+/* Flex properties taken from Stack Overflow 
+(https://stackoverflow.com/questions/18990675/how-to-fix-a-footer-overlapping-content)*/
 body {
     display: flex;
     flex-direction: column;
@@ -5,18 +7,17 @@ body {
     min-height: 100vh;
 }
 
+/*-------Header------*/
 header {
     width: 100%;
 }
 
+/*-------Flash messages------*/
 .flash-msgs {
     line-height: 1;
 }
 
-main {
-    flex: 1 1 auto; 
-}
-
+/*-------Footer------*/
 footer {
     position: relative;
     left: 0;
@@ -24,6 +25,7 @@ footer {
     width: 100%;
 }
 
+/*-------Home page container & Hero image------*/
 .container {
     text-align: center;
     color: white;
@@ -38,6 +40,13 @@ footer {
     padding: 0;
 }
 
+/* Flex properties taken from Stack Overflow 
+(https://stackoverflow.com/questions/18990675/how-to-fix-a-footer-overlapping-content)*/
+main {
+    flex: 1 1 auto; 
+}
+
+/*------Buttons------*/
 /* Font-weigt setting taken from Stack Overflow (https://stackoverflow.com/questions/18569994/change-button-text-to-bold)*/
 .btn, .btn-small {
     font-weight: bold;
