@@ -53,7 +53,26 @@
 
 ## Structure
 
+This website has different sets of pages, dependant on weather user is logged in or not, or if are an admin. 
+**First time user four pages are visible:** 
+- Home 
+- All Habits 
+- Log In
+- Sign Up
 
+**For registered User another four pages visible:**
+- Home
+- All Habits
+- My Habits
+- Add Habit
+Additionally, they have Log Out option
+
+**For Admin User five pages + Log Out:**
+- Home
+- All Habits
+- My Habits
+- Add Habit
+- Manage categories
 
 ## Skeleton
 
