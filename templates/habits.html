@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-        <h3 class="cyan-text text-darken-4"> {{content.welcome_message}} </h3>
+        <h4 class="cyan-text text-darken-4"> {{content.welcome_message}} </h4>
         
         <div class="row">
           <form class="col s12" method="POST" action="{%if content.my_habits %} {{ url_for('habits', username=session.user) }} {%else%}  {{ url_for('get_habits') }} {%endif%}">

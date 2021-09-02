@@ -25,11 +25,34 @@ footer {
     width: 100%;
 }
 
+.footer-btn {
+    margin-top: 5px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.social-links a {
+    margin: 19px;
+    color: #fff;
+}
+
 /*-------Home page container & Hero image------*/
 .container {
     text-align: center;
     color: white;
     width: 100%;
+    left: 50%;
+  }
+
+  .container-fluid {
+      width: 100%;
   }
 
 .hero-image {
@@ -64,10 +87,20 @@ main {
 
 h5{
     margin: 15px;
+    text-align: justify;
 }
 
-.row .card {
+h4 {
+    text-align: center;
+}
+
+.row p {
+    text-align: justify;
+}
+
+.row .col.s12 {
     width: 90%;
+    margin-left: auto;
     left: 5%;
 }
 
@@ -98,8 +131,8 @@ h5{
     margin-left: 10px;
 }
 
-.row .form-fields {
-    width: 100%;
+.form-fields {
+    width: 90%;
     right: auto;
     left: auto;
 }
@@ -108,11 +141,13 @@ h5{
     .row .col.l4 {
         width: 27%;
         margin: 15px;
-        left: 6%;
+        left: auto;
+        right: auto;
     }
 
-    .row .form-fields {
-        width: 80%;
-        left: 20%;
+    .form-fields {
+        width: 60%;
+        left: auto;
+        right: auto;
     }
 }
