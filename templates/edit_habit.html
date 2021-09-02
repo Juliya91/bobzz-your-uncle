@@ -5,7 +5,7 @@
         {{action_message}} Habit</h3>
 
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('edit_habit', habit_id=habit._id) }}">
+        <form class="form-fields col s12" method="POST" action="{{ url_for('edit_habit', habit_id=habit._id) }}">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix cyan-text text-darken-4"></i>
@@ -44,7 +44,7 @@
                 <div class="input-field col s12">
                     <select id="completion_time" name="completion_time">
                         <option value="" disabled>Choose your option</option>
-                        <option value="daytime" {% if 'daytime' == habit.completion_time %} selected {%endif%}>Daytime</option>
+                        <option value="daytime" {% if 'daytime' == habit.completion_time %} selected {%endif%}>Time of the day</option>
                         <option value="minutes" {% if 'minutes' == habit.completion_time %} selected {%endif%}>Minutes</option>
                     </select>
                       <label class="cyan-text text-darken-4">Completion Time Options</label>
@@ -53,10 +53,10 @@
             </div>
             <div class="row">
                 <div class="col s12 center-align">
-                    <a href="{{ url_for('habits', username=session.user) }}" class="btn-large red">
+                    <a href="{{ url_for('habits', username=session.user) }}" class="btn-small red">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
-                    <button type="submit" class="btn-large cyan darken-4 white-text">
+                    <button type="submit" class="btn-small cyan darken-4 white-text">
                         {{action_message}} Habit <i class="fas fa-edit right"></i>
                     </button>
                 </div>

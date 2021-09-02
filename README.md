@@ -15,11 +15,13 @@
 
 
 ## Overview
-We live in a new reality as the Pandemic has changed our lives completely, so people have been looking for an escape and ways to keep themself busy. One of the directions many have ventured into is self-improvement. Which is why I have decided to create a website for habit tracking. **BobZZ Your Uncle** has the simplicity in usability and the brief information about the habit forming to inspire users for self-improvement. 
+ As the Pandemic has changed our lives completely, we live in a new reality. More and more people have been looking for an escape and ways to keep themself busy. One of the directions many have ventured into is self-improvement - which is why I have decided to create a website for habit tracking. **BobZZ Your Uncle** focuses on simple and clear usability and offers concise information for forming lasting habits, to inspire users to change their lives. 
 
  
 ## Description 
 
+This website has different sets of pages, dependant on weather you are logged in or not, or if are an admin. For a potential user 
+**BobZZ Your Uncle** is simple in use and gives the users the oportunity to follow pre-existing habits, create their own as well as track their progress. 
 
 
 ---

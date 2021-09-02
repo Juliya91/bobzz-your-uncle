@@ -66,7 +66,7 @@ h5{
     margin: 15px;
 }
 
-.row .col.s12 {
+.row .card {
     width: 90%;
     left: 5%;
 }
@@ -98,11 +98,21 @@ h5{
     margin-left: 10px;
 }
 
+.row .form-fields {
+    width: 100%;
+    right: auto;
+    left: auto;
+}
 
 @media only screen and (min-width: 993px){
     .row .col.l4 {
         width: 27%;
         margin: 15px;
         left: 6%;
+    }
+
+    .row .form-fields {
+        width: 80%;
+        left: 20%;
     }
 }
