@@ -20,8 +20,7 @@
  
 ## Description 
 
-This website has different sets of pages, dependant on weather you are logged in or not, or if are an admin. For a potential user 
-**BobZZ Your Uncle** is simple in use and gives the users the oportunity to follow pre-existing habits, create their own as well as track their progress. 
+**BobZZ Your Uncle** is simple in use and gives the users the oportunity to follow pre-existing habits, create their own as well as track their progress. A potential user can see Home and All Habits pages, as well as Log In and Sign Up. Where Home Page has a hero image and brief information about habits and invitation to join the self-developement journey. All Habits page has 3 cards with public habits that user can view and once registered can clone. A signed up user can view additional two pages, which are My Habits and Add Habit. Where My Habits page shows the habits that user would create themselves and after be able to edit, delete and track their pogress, besides that user can clone a habit from All Habits page. Add Habit page has form for creating a habit. An admin user has access to Manage Categories page, where they can create, edit and delete categories. As well as admin user is the only one able to edit or delete 3 cards on All Habits page.
 
 
 ---
