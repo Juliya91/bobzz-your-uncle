@@ -28,6 +28,7 @@
 
 ## Strategy
 
+**BobZZ Your Uncle** is targeting all age groups of those who interested in self-devolepement. It's target is to have a simple habit tracking website that anyone can use. This website has all the basic easy to follow funcionality needed for creating and tracking user's habits. There are hardly any websites for habit tracking and for this reason this website is offering cross platform integration.
 
 **User Stories**
 
