@@ -5,6 +5,8 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*-------Header------*/
@@ -53,28 +55,29 @@ footer {
 
 /*------- Centered class and most properties taken from W3Schools 
 (https://www.w3schools.com/howto/howto_css_image_text.asp)*/
-  .centered {
+.centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255,138,101, 0.5);
-  }
+}
 
   /*--- Text shadow settings taken from CI walkthrough project - Task Manager */
   .centered h4, strong {
       text-shadow: 2px 2px 2px #006064;
+      font-size: 1.3em;
   }
 
-  .centered h5 {
-      font-size: 1.5em;
-      text-align: center;
-  }
+.centered h5 {
+    font-size: 1em;
+    text-align: center;
+}
 
-  .container-fluid {
-      width: 100%;
-      align-items: center;
-  }
+.container-fluid {
+    width: 100%;
+    align-items: center;
+}
 
 .hero-image {
     width: inherit;
@@ -119,6 +122,11 @@ h4 {
     text-align: justify;
 }
 
+.card-width {
+    width: 90%;
+    align-items: center;
+}
+
 .select-label {
     color: #ffff;
     font-weight: bold;  
@@ -152,17 +160,48 @@ h4 {
     left: auto;
 }
 
+@media only screen and (min-width: 768px){
+
+    .btn, .btn-small, .btn-large {
+        font-size: 1.5em;
+    }
+    
+    .centered h4 {
+        font-size: 2em;
+    }
+
+    .centered h5 {
+        font-size: 1.5em;
+    }
+}
+
 @media only screen and (min-width: 993px){
     .row .col.l4 {
         width: 27%;
         margin: 15px;
-        left: auto;
+        left: 7%;
         right: auto;
+    }
+
+    .btn, .btn-small, .btn-large {
+        font-size: 0.9em;
+    }
+
+    .row .card-content .card-title {
+        font-size: 1.2em;
     }
 
     .form-fields {
         width: 60%;
         left: auto;
         right: auto;
+    }
+
+    .centered h4 {
+        font-size: 2.5em;
+    }
+
+    .centered h5 {
+        font-size: 1.5em;
     }
 }

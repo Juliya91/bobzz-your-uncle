@@ -22,7 +22,7 @@
         <!--- Navbar & Sidenav taken from Materialize - (https://materializecss.com/navbar.html) --->
         <nav class="nav-extended deep-orange lighten-2 white-text">
           <div class="nav-wrapper">
-            <a href="{{ url_for('home') }}" class="brand-logo left">BobZZ Your Uncle</a>
+            <a href="{{ url_for('home') }}" class="brand-logo left"><img src="{{ url_for('static', filename='images/favicon-32x32.png') }}" alt=""> BobZZ Your Uncle</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -87,18 +87,18 @@
           <div class="container-fluid center">
             <!------ Footer text ------>
             <div class="row">
-              <div class="col m4 s12">
+              <div class="col s12 m4">
                 <h6 class="grey-text text-lighten-4">Feel like organizing your day is a drag?</h6>
                 <h6 class="grey-text text-lighten-4">Don't worry we are here to help!</h6>
               </div>
               <!------- Sign Up button ------->
-              <div class="col m4 s12">
+              <div class="col s12 m4">
                 <div class="footer-btn">
                   <a class="deep-orange-text text-lighten-2 white btn" href="{{ url_for('signup') }}">Sign Up!</a>
                 </div>
               </div>
               <!------- Social links ------->
-              <div class="col m4 s12">
+              <div class="col s12 m4">
                 <div class="social-links">
                   <a target="_blank" href="https://www.facebook.com/allabouthabits/">
                     <i class="fab fa-facebook-square" aria-hidden="true"></i>
