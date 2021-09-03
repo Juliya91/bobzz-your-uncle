@@ -45,10 +45,10 @@ footer {
 
 /*-------Home page container & Hero image------*/
 .container {
+    position: relative;
     text-align: center;
     color: white;
     width: 100%;
-    left: 50%;
   }
 
   .container-fluid {
