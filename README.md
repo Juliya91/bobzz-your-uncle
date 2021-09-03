@@ -80,6 +80,10 @@ Additionally, they have Log Out option
 - Home Page: <a href="wireframes/home-wireframe-b.pdf" target="_blank" >Home</a>
 
 - All Habits Page: <a href="wireframes/habits-wireframe-b.pdf" target="_blank" >All Habits</a>
+
+- Add Habit Page: <a href="wireframes/add-habit-wireframe-b.pdf" target="_blank" >Add Habit</a>
+
+- Manage Catefories Page: <a href="wireframes/categories-wireframe-b.pdf" target="_blank" >Manage Catefories</a>
 ---
 
 ## Surface

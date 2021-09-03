@@ -92,7 +92,7 @@ main {
 
 /*------Buttons------*/
 /* Font-weigt setting taken from Stack Overflow (https://stackoverflow.com/questions/18569994/change-button-text-to-bold)*/
-.btn, .btn-small {
+.btn, .btn-small, .btn-large {
     font-weight: bold;
     border-radius: 20px;
     margin-top: 15px;
