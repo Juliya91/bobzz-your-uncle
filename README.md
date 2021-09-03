@@ -50,7 +50,9 @@
 
 ## Scope
 
-
+- I have chosen minimalistic and clear design which allows users to focus on habits tracking as this is the main purpose of the website.
+- The Home page gives a brief information about forming habits and buttons inviting to Sign Up & check recommended habits. Recommended habits are 3 habits created by admin which could be cloned to add to My Habits page. On My Habits page user can edit, delete and track their progress. The progress can be conviniently seen under the description of the card.
+- I have used mixed content of cards with image, buttons and text.
 
 ## Structure
 
