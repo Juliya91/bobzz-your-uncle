@@ -43,7 +43,7 @@ footer {
     color: #fff;
 }
 
-/*-------Home page container & Hero image------*/
+/*------- Home page container & Hero image ------*/
 .container {
     position: relative;
     text-align: center;
@@ -51,8 +51,29 @@ footer {
     width: 100%;
   }
 
+/*------- Centered class and most properties taken from W3Schools 
+(https://www.w3schools.com/howto/howto_css_image_text.asp)*/
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255,138,101, 0.5);
+  }
+
+  /*--- Text shadow settings taken from CI walkthrough project - Task Manager */
+  .centered h4, strong {
+      text-shadow: 2px 2px 2px #006064;
+  }
+
+  .centered h5 {
+      font-size: 1.5em;
+      text-align: center;
+  }
+
   .container-fluid {
       width: 100%;
+      align-items: center;
   }
 
 .hero-image {
