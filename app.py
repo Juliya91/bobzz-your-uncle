@@ -111,7 +111,6 @@ def habits(username):
         search_value = request.form.get("search_value")
         habits = list(mongo.db.habits.find({"$and": [{'habit_name': {
             '$regex': search_value}}, {'created_by': username}]}))
-    # Display progress in description once user clicks Done button
     for habit in habits:
         progress_list = list(mongo.db.progress.find(
             {'habit_id': habit['_id']}))
@@ -132,7 +131,8 @@ def logout():
     return redirect(url_for("login"))
 
 
-# Add Habit Page route.
+# Add Habit Page route
+# Add habit with input fields from MongoDB & incert into My Habits
 @app.route("/add_habit", methods=["GET", "POST"])
 def add_habit():
     if request.method == "POST":
@@ -143,7 +143,7 @@ def add_habit():
             "completion_time": request.form.get("completion_time"),
             "created_by": session["user"]
         }
-
+        # Incert new habit & notify of successful action
         mongo.db.habits.insert_one(habit)
         flash("Habit Successfully Added")
         return redirect(url_for("habits", username=session['user']))
@@ -152,10 +152,12 @@ def add_habit():
     return render_template("add_habit.html", categories=categories)
 
 
+# Add Habit Progress route on My Habits Page
 @app.route("/add_habit_progres", methods=["POST"])
 def add_habit_progress():
     if request.method == "POST":
         print('Completion 2 ', request.form.getlist("completion_time[]"))
+        # Display progress in description once user clicks Done button
         progress = {
             "habit_id": ObjectId(request.form.get("habit_id")),
             "completion_time": request.form.getlist("completion_time"),
@@ -167,6 +169,8 @@ def add_habit_progress():
         return redirect(url_for("habits", username=session['user']))
 
 
+# Edit Habit Page route.
+# Request prefilled form by habit's ID for editing or cloning
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
 def edit_habit(habit_id):
     if request.method == "POST":
@@ -178,8 +182,10 @@ def edit_habit(habit_id):
             "created_by": session["user"]
         }
         action_name = request.form.get("action_name")
+        # Update habit if user editing their own
         if action_name == 'Updated':
             mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
+        # Clone & insert public habit to My Habits Page
         if action_name == 'Cloned':
             mongo.db.habits.insert_one(submit)
         flash("Habit Successfully %s" % action_name)
@@ -192,6 +198,8 @@ def edit_habit(habit_id):
         action_message='Edit', action_name='Updated')
 
 
+# Clone Habit Page route.
+# Re-use edit page, but clone wording and instead
 @app.route("/clone_habit/<habit_id>", methods=["GET"])
 def clone_habit(habit_id):
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
@@ -201,6 +209,8 @@ def clone_habit(habit_id):
         action_message='Clone', action_name='Cloned')
 
 
+# Delete Habit route.
+# Remove habit from db
 @app.route("/delete_habit/<habit_id>")
 def delete_habit(habit_id):
     mongo.db.habits.remove({"_id": ObjectId(habit_id)})
@@ -208,12 +218,16 @@ def delete_habit(habit_id):
     return redirect(url_for("habits", username=session['user']))
 
 
+# Manage Categories Page route.
+# Gets categories from db
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
+# Add Category Page route.
+# Incert new category into Manage Categories Page
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
@@ -227,6 +241,8 @@ def add_category():
     return render_template("add_category.html")
 
 
+# Edit Category Page route.
+# Request pre-filled category name by category's ID for editing
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if request.method == "POST":
@@ -241,6 +257,8 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
+# Delete category route.
+# Remove category from db
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
