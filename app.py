@@ -9,10 +9,11 @@ import datetime
 if os.path.exists("env.py"):
     import env
 
-
+# Structure and most of the python code taken from CI walkthrough project -
+# Task Manager and edited slightly
 app = Flask(__name__)
 
-# mondodb
+# MondoDB
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -21,11 +22,13 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+# Home Page route
 @app.route("/home")
 def home():
     return render_template("index.html")
 
 
+# All Habits Page route. Gets habits from db & searches for public habits
 @app.route("/get_habits", methods=["GET", "POST"])
 def get_habits():
     habits = list(mongo.db.habits.find({'is_public': True}))
@@ -40,6 +43,7 @@ def get_habits():
     return render_template("habits.html", content=content)
 
 
+# Sign Up Page route. Checks if username already in db & inserts new user
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -57,32 +61,34 @@ def signup():
         }
         mongo.db.users.insert_one(signup)
 
-        # put the new user into 'session' cookie
+        # Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Sign Up Successful!")
     return render_template("signup.html")
 
 
+# Log In Page route. Checks if username & password already in db
+# and redirects existing user to My Habits Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        # check if username exists in db
+        # Check if username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # ensure hashed password matches user input
+            # Ensure hashed password matches user input
             if check_password_hash(
                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
 
             else:
-                # invalid password match
+                # Invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
-            # username doesn't exist
+            # Username is not in the db
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
@@ -91,6 +97,8 @@ def login():
     return render_template("login.html")
 
 
+# My Habits Page route (re-uses habits.html, but with diff content).
+# Progress functionality
 @app.route("/habits/<username>", methods=["GET", "POST"])
 def habits(username):
     # Take the session user's username from db and link it to My Habits page
@@ -98,10 +106,12 @@ def habits(username):
         {"username": session["user"]})["username"]
     habits = list(mongo.db.habits.find({'created_by': username}))
     print('habits', habits)
+    # Search in My Habits for user's habits only
     if request.method == "POST":
         search_value = request.form.get("search_value")
         habits = list(mongo.db.habits.find({"$and": [{'habit_name': {
             '$regex': search_value}}, {'created_by': username}]}))
+    # Display progress in description once user clicks Done button
     for habit in habits:
         progress_list = list(mongo.db.progress.find(
             {'habit_id': habit['_id']}))
@@ -114,14 +124,15 @@ def habits(username):
         return render_template("habits.html", content=content)
 
 
+# Log Out route
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
 
+# Add Habit Page route.
 @app.route("/add_habit", methods=["GET", "POST"])
 def add_habit():
     if request.method == "POST":
@@ -167,9 +178,12 @@ def edit_habit(habit_id):
             "created_by": session["user"]
         }
         action_name = request.form.get("action_name")
-        mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
+        if action_name == 'Updated':
+            mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
+        if action_name == 'Cloned':
+            mongo.db.habits.insert_one(submit)
         flash("Habit Successfully %s" % action_name)
-        # Heres where you redirect to my habits
+        return redirect(url_for("habits", username=session['user']))
 
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
