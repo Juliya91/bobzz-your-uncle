@@ -98,12 +98,6 @@ h4 {
     text-align: justify;
 }
 
-.row .col.s12 {
-    width: 90%;
-    margin-left: auto;
-    left: 5%;
-}
-
 .select-label {
     color: #ffff;
     font-weight: bold;  
