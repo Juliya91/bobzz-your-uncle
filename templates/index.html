@@ -49,10 +49,12 @@
         <section>
             <div class="row center-align">
                 <div class="col s6">
-                    <a href="" class="btn-large white-text cyan darken-4">Sign Up & Begin Your Journey</a>
+                    <a href="{{ url_for('signup') }}" class="btn-large white-text cyan darken-4">
+                        Sign Up & Begin Your Journey</a>
                 </div>
                 <div class="col s6">
-                    <a href="" class="btn-large white-text cyan darken-4">Explore Our Recommended Habits</a>
+                    <a href="{{ url_for('get_habits') }}" class="btn-large white-text cyan darken-4">
+                        Explore Our Recommended Habits</a>
                 </div>
             </div>
         </section>
