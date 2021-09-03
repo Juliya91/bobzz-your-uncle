@@ -2,6 +2,14 @@
 {% block content %}
     <h4 class="deep-orange-text text-lighten-2">Manage Categories</h4>
     
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_category') }}" class="btn-small deep-orange-text text-lighten-2 white">
+                Add Category <i class="fas fa-plus-circle right"></i>
+            </a>
+        </div>
+    </div>
+
     <!-----Card Panel taken from Materialize and edited (https://materializecss.com/cards.html)-->
     <div class="row">
         {% for category in categories %}
