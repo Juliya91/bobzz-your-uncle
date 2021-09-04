@@ -2,9 +2,11 @@
 
 ## Code Institute - Milestone Project 3
 
+  ### View the live project [here.](http://bobzz-your-uncle.herokuapp.com/home)
 
 - The purpose of **BobZZ Your Uncle** is to provide an easy to follow, straightforward habit tracking website, to inspire people interested in self-development. Users will be able to follow pre-existent habits, as well as create, edit and delete their own. The simplicity and intuitive UI will ensure that users of different age groups will enjoy continuously using the **BobZZ Your Uncle** website to improve their lives.
 
+![am-i-responsive](https://user-images.githubusercontent.com/75125486/132083761-1d1af044-0eae-4403-858c-aef5ff4f5023.png)
 
 ## Table of Contents
 > - [Overview](#overview)
@@ -13,6 +15,7 @@
 > - [User Stories](#user-stories)
 > - [Features](#features)
 > - [Technologies Used](#technologies-used)
+> - [Testing](#testing)
 > - [Credits](#credits)
 > - [Deployment](#deployment)
 
@@ -192,7 +195,6 @@ I have used minimalistic design with simple layout. Home page has hero image wit
 - [W3Schools](https://www.w3schools.com/) - used for CSS coding tips.
 - [StackOverFlow](https://stackoverflow.com/) - used as a general resource for both styling and HTML tips as well as python tips.
 - [Online Web Tutor](https://onlinewebtutorblog.com/how-to-validate-password-and-confirm-password-using-jquery/) - Used for confirm password (check if password match) functionslity in jQuery.
-- [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly) - Used to test all pages on a mobile device
 - [AmIResponsive](http://ami.responsivedesign.is/) - Used to see how the layout of the website looks across different devices- found at the top of this [README](https://github.com/Juliya91/bobzz-your-uncle/blob/main/README.md). 
 
 # Testing
