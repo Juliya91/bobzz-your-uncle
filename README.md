@@ -13,6 +13,7 @@
 > - [User Stories](#user-stories)
 > - [Features](#features)
 > - [Technologies Used](#technologies-used)
+> - [Credits](#credits)
 
 
 
@@ -192,3 +193,16 @@ I have used minimalistic design with simple layout. Home page has hero image wit
 - [Online Web Tutor](https://onlinewebtutorblog.com/how-to-validate-password-and-confirm-password-using-jquery/) - Used for confirm password (check if password match) functionslity in jQuery.
 - [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly) - Used to test all pages on a mobile device
 - [AmIResponsive](http://ami.responsivedesign.is/) - Used to see how the layout of the website looks across different devices- found at the top of this [README](https://github.com/Juliya91/bobzz-your-uncle/blob/main/README.md). 
+
+## Credits
+
+### Content
+
+- Parts of text for welcome part of Home and page was ispired by YouTube video [The "It Takes 21 Days To Form A Habit" Myth: BUSTED](https://www.youtube.com/watch?v=_bbEviC9qSc)
+
+### Media
+
+- The photos for this project were taken from Adobe Stock and Bing images.
+---
+### Acknowledgements
+- My Mentor **Antonio Rodriguez** for his tremendous help, motivation, inspiration and guidance on the sessions.
