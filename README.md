@@ -14,6 +14,7 @@
 > - [Features](#features)
 > - [Technologies Used](#technologies-used)
 > - [Credits](#credits)
+> - [Deployment](#deployment)
 
 
 
@@ -193,6 +194,70 @@ I have used minimalistic design with simple layout. Home page has hero image wit
 - [Online Web Tutor](https://onlinewebtutorblog.com/how-to-validate-password-and-confirm-password-using-jquery/) - Used for confirm password (check if password match) functionslity in jQuery.
 - [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly) - Used to test all pages on a mobile device
 - [AmIResponsive](http://ami.responsivedesign.is/) - Used to see how the layout of the website looks across different devices- found at the top of this [README](https://github.com/Juliya91/bobzz-your-uncle/blob/main/README.md). 
+
+
+# Deployment
+
+## Local Deployment
+
+### Requirements:
+- [Python 3](https://www.python.org) 
+- [PIP](https://pypi.org/project/pip/) 
+- [Git](https://git-scm.com/) 
+- [MongoDB](https://www.mongodb.com/)
+
+
+### How to clone BobZZ Your Uncle:
+
+- Log in to GitHub and create a new repository by clicking "+" next to my profile avatar and choosing "New repository".
+- Go to [this repository](https://github.com/Juliya91/bobzz-your-uncle).
+- Once added a Gitpod extention to a browser, on GitHub repository click on the green "Gitpod" button next to code button which will redirect to [Gitpod](https://gitpod.io/)
+- Gitpod, an IDE used to write all the code and this README file for this project.
+
+- Install all the project dependencies from the terminal window of your IDE by typing: pip3 install -r requirements.txt.
+- Register or login to your [MongoDB](https://www.mongodb.com/) account to create a database. First create a cluster, then a database and the four collections.
+- Create an env.py file to contain the environment variables, which should include the following:
+
+```console
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "**secret key goes here**")
+os.environ.setdefault("MONGO_URI", "**mongo uri goes here**")
+os.environ.setdefault("MONGO_DBNAME", "**database name goes here**")
+```
+4. Create a .gitignore file in the root directory of the project and add the env.py to the .gitignore file to prevent the environment variables from being made public.
+5. Type `python3 app.py` into the terminal to run the app locally. 
+
+
+
+## Heroku Deployment
+
+- Set up local workspace for Heroku by typing `pip3 freeze -- local > requirements.txt` into the terminal to inform Heroku of the files required and then `python app.py > Procfile` to setup the Procfile. 
+- Set up [Heroku](https://www.heroku.com) by signing in or registering an account to create the app. To create the app, you must select the local region and the app must have a unique name.
+- Link the app to the GitHub repository by going to the **Deploy** tab in the main app menu, search for your correct repository and select to connect.
+- Add the corresponding Config Variables by selecting **Config Vars** and click on **Reveal Config Vars**. Input the variables from the IDE created in earlier steps to the **Settings** tab:
+
+|**Key**|**Value**|
+|:-----|:-----|
+|IP|`0.0.0.0`|
+|PORT|`5000`|
+|SECRET_KEY|`secret key goes here`|
+|MONGO_URI|`mongo uri goes here`|
+|MONGO_DBNAME|`database name goes here`|
+
+- Push the requirements.txt and Procfile to repository.
+```console
+$ git add requirements.txt
+$ git commit -m "Add requirements.txt"
+
+$ git add Procfile 
+$ git commit -m "Add Procfile"
+```
+
+- Go back to the **Deploy** tab and under **Automatic deploys** select **Enable Automatic Deploys** and under **Manual deploy**, select **master** and click **Deploy Branch**.
+- Once the app has completed the build from Github using the required packages, click **Open app** to reveal the live URL.
 
 ## Credits
 
