@@ -90,3 +90,16 @@ Additionally, they have Log Out option
 
 ## Surface
 
+## Surface
+
+I have used minimalistic design with simple layout. Home page has hero image with text box on top of it, apart from it the rest of elements are done in simplistic design with 3 main colours. Cards have an image in them and underneatch on cyan backroung is habit's elements in white text. All the buttons, forms and cards are following the main colour scheme.
+
+
+### Images
+- Two images have been used for this website. The hero image at the top of the Home page with the text box with the quote are designed to draw user's attention to the purpose of the website. While on All Habits & My Habits pages there is one image on each card at the moment.
+
+-   ### Design
+    -   #### Colour Scheme
+        - Main colors of the website are - peach, cyan and white. This colourscheme is consistant throughout all pages and is calm without causing any distress or sidtructions from main purpose of the website.
+    -   #### Icons
+        - Font Awesome was used for icons which are psent on all pages: next to heading of 3 steps on the Home page, on most of the buttons, on the forms for adding & editing habits and ategories, on Signing Up & Log In forms and social links in the footer.
