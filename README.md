@@ -195,6 +195,8 @@ I have used minimalistic design with simple layout. Home page has hero image wit
 - [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly) - Used to test all pages on a mobile device
 - [AmIResponsive](http://ami.responsivedesign.is/) - Used to see how the layout of the website looks across different devices- found at the top of this [README](https://github.com/Juliya91/bobzz-your-uncle/blob/main/README.md). 
 
+# Testing
+The Testing process has been documented in this [TESTING.md file](TESTING.md "TESTING.md File")
 
 # Deployment
 

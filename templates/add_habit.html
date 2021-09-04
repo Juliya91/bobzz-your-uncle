@@ -3,10 +3,14 @@
 
     <h4 class="deep-orange-text text-lighten-2">Add Habit</h4>
     <div class="container form-fields">
+    <!-------- Code for form and text inputs taken from Materialize 
+        (https://materializecss.com/text-inputs.html) and edited slightly ---------->
+      <!-------- Classes for icons and most of code taken from Code Institute walkthrough project - Task Manager -------->
         <div class="row">
             <form class="col s12" method="POST" action="{{ url_for('add_habit') }}">
                 <div class="row">
                     <div class="input-field col s12">
+                        <!---- Category Name select ---->
                         <i class="fas fa-book prefix cyan-text text-darken-4"></i>
                         <select id="category_name" name="category_name" class="validate" required>
                             <option value="" disabled selected>Choose Category</option>
@@ -19,6 +23,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <!---- Habit Name ---->
                         <i class="fas fa-check-square prefix cyan-text text-darken-4"></i>
                         <input id="habit_name" name="habit_name" minlength="5" maxlength="50" type="text"
                             class="validate" required>
@@ -27,6 +32,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <!---- Habit Description ---->
                         <i class="fas fa-indent prefix cyan-text text-darken-4"></i>
                         <textarea id="habit_description" name="habit_description" minlength="5" maxlength="200"
                             class="materialize-textarea validate" required></textarea>
@@ -34,6 +40,7 @@
                     </div>
                 </div>
                 <div class="row">
+                    <!---- Completion time selection ---->
                     <div class="input-field col s12">
                         <select id="completion_time" name="completion_time">
                             <option value="" disabled selected>Choose your option</option>
@@ -46,6 +53,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12 center-align">
+                        <!---- Add Habit button ---->
                         <button type="submit" class="btn-small cyan darken-4 white-text">
                             Add Habit <i class="fas fa-plus-circle right"></i>
                         </button>

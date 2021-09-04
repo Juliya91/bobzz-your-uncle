@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <!----- Hero Image & Text Box ----->
     <div class="container">
         <img src="{{ url_for('static', filename='images/hero-image-mp3.jpg')}}" class="hero-image" alt="">
         <div class="centered">
@@ -15,7 +16,7 @@
     </div>
     <main>
         <section class="cyan-text text-darken-4">
-            
+        <!----- Three Steps section-->
             <div class="row center-align">
                 <div class="col s12 m4 center-align">
                     <h4><i class="fas fa-hand-holding-water deep-orange-text text-lighten-2"> </i> Start Small!</h4>
@@ -47,6 +48,7 @@
             </div>
         </section>
         <section>
+        <!---- Buttons/Links to Sign Up & All Habits ---->
             <div class="row center-align">
                 <div class="col s12 m6">
                     <a href="{{ url_for('signup') }}" class="btn-large white-text cyan darken-4">

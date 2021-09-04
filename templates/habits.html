@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+      <!---- Welcome Flash Message ---->
         <h4 class="cyan-text text-darken-4"> {{content.welcome_message}} </h4>
         
         <div class="row">
+      <!---- Search Bar ---->
           <form class="col s12" method="POST" action="{%if content.my_habits %} {{ url_for('habits', username=session.user) }} {%else%}  {{ url_for('get_habits') }} {%endif%}">
             <div class="row">
               <div class="input-field col s6">
@@ -19,6 +21,8 @@
 
         <div class="row">
           {%for habit in content.habits%}
+        <!---- Habit Card Time of the day option ---->
+        <!---- Card Reveal taken from Materialize (https://materializecss.com/cards.html) and edited ---->
             <div class="card col s12 l4 white-text cyan darken-4">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="{{ url_for('static', filename='images/self_care.jpeg')}}">
@@ -38,6 +42,7 @@
                       <option value="Evening">Evening</option>
                     </select>
                     <label></label>
+                    <!---- Done Button ---->
                     <button class="btn-small deep-orange-text text-lighten-2 white" type="submit">
                       Done</button>
                   </div>
@@ -45,6 +50,7 @@
                       
               {%endif%}
               {% if habit.completion_time == 'minutes'%}
+              <!---- Habit Minutes option ---->
                 <form action="{{url_for('add_habit_progress')}}" method="POST">
                   <input type="hidden" value="{{habit._id}}" name="habit_id"/>
                   <div class="input-field col s12 center-align">
@@ -56,6 +62,7 @@
                       <option value="45 Minutes">45 Minutes</option>
                     </select>
                     <label class="select-label"></label>
+                    <!---- Done Button ---->
                     <button class="btn-small deep-orange-text text-lighten-2 white" type="submit">
                       Done</button>
                   </div>
@@ -64,10 +71,12 @@
 
               {% if session.user == habit.created_by %}
                   <div class="row center-align">
+                  <!---- Edit Button ---->
                     <div class="col s6">
                       <a href="{{ url_for('edit_habit', habit_id=habit._id) }}" 
                       class="btn-small white-text cyan darken-4 btn-done-shadow ">Edit</a>
                     </div>
+                  <!---- Delete Button ---->
                     <div class="col s6">
                       <a  class="btn-small white-text cyan darken-4 btn-done-shadow modal-trigger"
                       href="#modal_{{habit._id}}">Delete</a>
@@ -89,6 +98,7 @@
               {%else%}
                   {% if session.user %}
                     <div class="row center-align">
+                    <!---- Clone Button ---->
                       <div class="col s12 center-align">
                         <a href="{{ url_for('clone_habit', habit_id=habit._id) }}" 
                         class="btn-small deep-orange-text text-lighten-2 white">Clone</a>
@@ -98,6 +108,8 @@
               {%endif%}
 
             </div>
+            <!---- Habit Card Reveal & Progress ---->
+            <!---- Card Reveal taken from Materialize (https://materializecss.com/cards.html) and edited ---->
             <div class="card-reveal white-text cyan darken-4">
               <span class="card-title "><strong>{{habit.habit_name}}</strong> <i class="fas fa-ellipsis-v">
               </i></span>

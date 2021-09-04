@@ -8,6 +8,7 @@
             <form class="col s12" method="POST" action="{{ url_for('edit_habit', habit_id=habit._id) }}">
                 <div class="row">
                     <div class="input-field col s12">
+                        <!---- Category Name Pr-select ---->
                         <i class="fas fa-book prefix cyan-text text-darken-4"></i>
                         <select id="category_name" name="category_name" class="validate" required>
                             <option value="" disabled selected>Choose Category</option>
@@ -24,6 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <!---- Habit Name Pr-select ---->
                         <i class="fas fa-check-square prefix cyan-text text-darken-4"></i>
                         <input id="habit_name" name="habit_name" minlength="5" maxlength="50"
                             value="{{ habit.habit_name }}" type="text" class="validate" required>
@@ -32,6 +34,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <!---- Habit Description Pr-select ---->
                         <i class="fas fa-indent prefix cyan-text text-darken-4"></i>
                         <textarea id="habit_description" name="habit_description" minlength="5" maxlength="200"
                             class="materialize-textarea validate" required>
@@ -42,10 +45,13 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <!---- Completion Time Options Pr-select ---->
                         <select id="completion_time" name="completion_time">
                             <option value="" disabled>Choose your option</option>
+                            <!---- If statement to pr-select daytime ---->
                             <option value="daytime" {% if 'daytime' == habit.completion_time %} selected {%endif%}>Time
                                 of the day</option>
+                                <!---- If statement to pr-select minutes ---->
                             <option value="minutes" {% if 'minutes' == habit.completion_time %} selected {%endif%}>
                                 Minutes</option>
                         </select>
@@ -55,9 +61,11 @@
                 </div>
                 <div class="row">
                     <div class="col s12 center-align">
+                        <!---- Cansel Button ---->
                         <a href="{{ url_for('habits', username=session.user) }}" class="btn-small red">
                             Cancel <i class="fas fa-times-circle right"></i>
                         </a>
+                        <!---- Edit/Clone Button ---->
                         <button type="submit" class="btn-small cyan darken-4 white-text">
                             {{action_message}} Habit <i class="fas fa-edit right"></i>
                         </button>

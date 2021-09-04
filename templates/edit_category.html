@@ -3,6 +3,7 @@
 
     <h4 class="deep-orange-text text-lighten-2">Edit Category</h4>
     <div class="container form-fields">
+        <!---- Reuse Edit Habit form, but with category only-->
         <div class="row">
             <form class="col s12" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
                 <!----- Category Name ----->
@@ -17,9 +18,11 @@
                 <!----- Submit Button ----->
                 <div class="row">
                     <div class="col s12 center-align">
+                        <!---- Cansel Button ---->
                         <a href="{{ url_for('get_categories') }}" class="btn-small red">
                             Cancel <i class="fas fa-times-circle right"></i>
                         </a>
+                        <!---- Edit Button ---->
                         <button type="submit" class="btn-small cyan darken-4 white-text">
                             Edit Category <i class="fas fa-edit right"></i>
                         </button>
