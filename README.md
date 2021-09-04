@@ -12,6 +12,7 @@
 > - [Ux](#ux)
 > - [User Stories](#user-stories)
 > - [Features](#features)
+> - [Technologies Used](#technologies-used)
 
 
 
@@ -163,3 +164,31 @@ I have used minimalistic design with simple layout. Home page has hero image wit
 - Different images choice for habit cards
 - Progress page seperate with graphs
 ---
+
+## Technologies Used
+
+#### Languages:
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Python](https://www.python.org/) with [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+
+#### Libraries:
+- [Materialize 1.0.0](https://materializecss.com/getting-started.html) - A mobile-first responsive library used to construct various parts of the website, including the All Habits & My Habits cards, Navbar, Footer, Add Habit, Edit Habit, Log In & Sign Up Form, Grid System and Buttons.
+- [jQuery](https://jquery.com/) - Used for sidenav, confirm delete modal, for select and password match check.
+- [Flask](https://palletsprojects.com/p/flask/) 
+- [FontAwesome](https://fontawesome.com/) - Used for icons used for header, footer, in front of titles of three steps on home page, in front of input fields of all forms and in most of buttons.
+- [Balsamiq](https://balsamiq.com/wireframes/?gclid=EAIaIQobChMIn-_lgbiJ7QIVn4BQBh1X3Av6EAAYASAAEgL1XfD_BwE) - used for creating the wireframes
+
+#### Version Control:
+- [Github](https://github.com/) - Used to store the code and to deploy the website. 
+- [Gitpod](https://gitpod.io/) - Used as the primary version control IDE for development to further push and commit code to Gihub.
+
+#### Other:
+- [Code Institute Course Content](https://courses.codeinstitute.net/) - Main learning base as well as inspiration for curtain features.
+- [ChromeDevTools](https://developers.google.com/web/tools/chrome-devtools) - Used frequently to check layout, responsivness and any malfunctions.
+- [W3Schools](https://www.w3schools.com/) - used for CSS coding tips.
+- [StackOverFlow](https://stackoverflow.com/) - used as a general resource for both styling and HTML tips as well as python tips.
+- [Online Web Tutor](https://onlinewebtutorblog.com/how-to-validate-password-and-confirm-password-using-jquery/) - Used for confirm password (check if password match) functionslity in jQuery.
+- [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly) - Used to test all pages on a mobile device
+- [AmIResponsive](http://ami.responsivedesign.is/) - Used to see how the layout of the website looks across different devices- found at the top of this [README](https://github.com/Juliya91/bobzz-your-uncle/blob/main/README.md). 
