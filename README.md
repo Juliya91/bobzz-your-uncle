@@ -11,6 +11,7 @@
 > - [Description](#description)
 > - [Ux](#ux)
 > - [User Stories](#user-stories)
+> - [Features](#features)
 
 
 
@@ -103,3 +104,62 @@ I have used minimalistic design with simple layout. Home page has hero image wit
         - Main colors of the website are - peach, cyan and white. This colourscheme is consistant throughout all pages and is calm without causing any distress or sidtructions from main purpose of the website.
     -   #### Icons
         - Font Awesome was used for icons which are psent on all pages: next to heading of 3 steps on the Home page, on most of the buttons, on the forms for adding & editing habits and ategories, on Signing Up & Log In forms and social links in the footer.
+
+## Features
+
+#### Navbar
+- Logo and website name can be clicked on any page and it will take the user to Home page.
+- Favicon has been added to show on the tab, matching the logo.
+- On a mobile, the navbar is then collapsed to show the toggler which expands when clicked to display the nav elements as sidenav, which can be swiped or removed by clicking on blank space
+
+#### Home
+- Contains the hero image of graphic mountains with nearly transparant peach text box with text-shadow accents.
+- Grid system used to create 3 columns: for 3 simple steps of forming a habit with icons next to the title of each of them.
+- Underneath those steps are two buttons: 1) is inviting to sign up & 2) is inviting to check out recommended habits on All Habits page.
+
+#### All Habits
+- Contains pablic cards with habits
+- Habits can be cloned once user signed up
+- Card reveal allows user to see the description
+- Card reveal can be accessed by clicking either on the image or three dots next to habit name
+- Card contains prechosen completion time type (i.e. minutes or time of the day) where user can still choose a completion time 
+- Done button can be clicked once task is completed and it will add to progress
+- Progress updates in the description of the habit after each click of done button
+- Progress shows the day of completion and completion time chosen by user
+- Search on the top will search only for public habits
+
+#### My Habits
+- Contains all the same features as My Habits page apart from clone function
+- Once habit added it can be edited and delted if user wishes so
+- Edit funcion is redirecting to Edit Habit page where pre-filled fields can be ammended
+- Once habit has been edited it will redirect back to My Habits page and flash message will notify of successful update
+- When user presses delete button a delete confirmation modal pops up to avoid accidental deletion
+- Search on the top will search only for habits created by user
+
+#### Add Habit
+- Contains form with fields to fill in (which are required) as well as dropdown for category and completion time typle selection
+- Redirects to My Habits page once habit was created, showing flash message for successful creation
+
+
+#### Sign Up 
+- Contains form for signing up
+- Checks if username already exists
+- Has minimum and maximum length for password
+- Checks if password if password is matching
+- Redirects to My Habits page once user signed up with "Welcome {username}" message
+
+#### Log In
+- Checks if username is in data base (db from now on)
+- Checks if password is correct
+- If either of them incorrect shows "Incorrect Username and/or Password" message
+- Redirects to My Habits page once logged in
+
+#### Footer
+- Sign Up button (following the rounded shape of all buttons) can be clicked for user to go straight to sign up page
+- Social media icons link to the pages about habits for more inspiration, which will open in seperate tab.
+
+### Features Left to Implement
+- Public or Private option when user creates habit.
+- Different images choice for habit cards
+- Progress page seperate with graphs
+---
